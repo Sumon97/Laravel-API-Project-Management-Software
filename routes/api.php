@@ -29,7 +29,6 @@ Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
 Route::get('/profile', [UserController::class, 'profile']);
 
-
 Route::resources([
     'projects'              => ProjectController::class,
     'project-requirements'  => ProjectRequirementController::class,
