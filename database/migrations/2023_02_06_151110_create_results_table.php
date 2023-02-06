@@ -32,6 +32,6 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('results');
-        $table->dropForeign(['project_id']);
+        $table->dropForeign(['task_id']);
     }
 };
