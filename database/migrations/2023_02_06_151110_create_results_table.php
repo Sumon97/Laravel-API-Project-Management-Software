@@ -15,7 +15,11 @@ return new class extends Migration
     {
         Schema::create('results', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('task_id');
+            $table->foreign('task_id')->references('id')->on('tasks')->onUpdate('cascade')->onDelete('cascade');
             $table->string('title');
+            $table->string('description');
+            $table->string('file')->nullable();
             $table->timestamps();
         });
     }
@@ -28,5 +32,6 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('results');
+        $table->dropForeign(['project_id']);
     }
 };
